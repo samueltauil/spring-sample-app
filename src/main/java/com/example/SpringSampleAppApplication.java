@@ -36,7 +36,7 @@ class HomeRestController {
     String hostname="";
 	public  HomeRestController(){
 		try {
-			hostname= "Hello from v1 " + InetAddress.getLocalHost().getHostName().toString();
+			hostname= "Hello from version: 1 " + InetAddress.getLocalHost().getHostName().toString();
 		}
 		catch (UnknownHostException ex){
 			hostname= "error";
@@ -45,7 +45,7 @@ class HomeRestController {
 
 	@RequestMapping("/")
 	public String home(){
-         return "<h1>"+hostname+"</h1>";
+         return "<h2>"+hostname+"</h2>";
 	}
 
 	@RequestMapping("/healthz")
