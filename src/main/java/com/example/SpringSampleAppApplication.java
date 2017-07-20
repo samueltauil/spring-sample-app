@@ -75,8 +75,9 @@ class HomeRestController {
 			conn =  DriverManager.getConnection(env.getProperty("spring.datasource.url"),env.getProperty("spring.datasource.username"),env.getProperty("spring.datasource.password"));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			rs.next();
-			String res="<h1>"+rs.getInt("CUST_ID") + rs.getString("NAME")+rs.getInt("Age")+"</h1>";
+			while (rs.next()){
+			String res+="<h1>"+rs.getInt("CUST_ID") + rs.getString("NAME")+rs.getInt("Age")+"</h1><br>";
+			}	
 			return res;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
