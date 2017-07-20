@@ -70,13 +70,14 @@ class HomeRestController {
 
 		String sql = "SELECT * FROM customer";
 		Connection conn = null;
+		String res = new String();
 
 		try {
 			conn =  DriverManager.getConnection(env.getProperty("spring.datasource.url"),env.getProperty("spring.datasource.username"),env.getProperty("spring.datasource.password"));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()){
-			String res+="<h1>"+rs.getInt("CUST_ID") + rs.getString("NAME")+rs.getInt("Age")+"</h1><br>";
+			res += "<h1>"+rs.getInt("CUST_ID") + rs.getString("NAME")+rs.getInt("Age")+"</h1><br>";
 			}	
 			return res;
 		} catch (SQLException e) {
