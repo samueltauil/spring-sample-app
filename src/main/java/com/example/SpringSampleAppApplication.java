@@ -77,7 +77,7 @@ class HomeRestController {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()){
-			res += "<h1>"+rs.getInt("CUST_ID") + rs.getString("NAME")+rs.getInt("Age")+"</h1><br>";
+			res += "<h1>ID: "+rs.getInt("CUST_ID") +" - NAME: "+ rs.getString("NAME")+" - AGE: "+rs.getInt("Age")+"</h1><br>";
 			}	
 			return res;
 		} catch (SQLException e) {
